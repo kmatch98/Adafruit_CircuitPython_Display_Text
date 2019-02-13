@@ -55,9 +55,9 @@ class TextArea(displayio.Group):
     def __init__(self, font, *, text=None, width=None, height=1, color=0xffffff):
         if not width and not text:
             raise RuntimeError("Please provide a width")
-        super().__init__(max_size=width * height)
         if not width:
             width = len(text)
+        super().__init__(max_size=width * height)
         self.width = width
         self.font = font
         self._text = None
@@ -106,11 +106,11 @@ class TextArea(displayio.Group):
     @property
     def color(self):
         """Color of the text as an RGB hex number."""
-        return self.p[1]
+        return self.palette[1]
 
     @color.setter
     def color(self, new_color):
-        self.p[1] = new_color
+        self.palette[1] = new_color
 
     @property
     def text(self):
