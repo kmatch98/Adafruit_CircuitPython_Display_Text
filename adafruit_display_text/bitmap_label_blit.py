@@ -339,9 +339,8 @@ class Label(displayio.Group):
         #
         # Note: Scale is not implemented at this time, is pushed up to Group level
 
-
-        #import time
-        #time.sleep(5)
+        # import time
+        # time.sleep(5)
 
         bitmap_width = bitmap.width
         bitmap_height = bitmap.height
@@ -413,14 +412,19 @@ class Label(displayio.Group):
                     #                     glyph_offset_x, 0,
                     #                     glyph_offset_x+my_glyph.width, 0+my_glyph.height))
 
-                    bitmap.insert(xposition+my_glyph.dx, yposition-my_glyph.height-my_glyph.dy, 
-                                    my_glyph.bitmap, 
-                                    glyph_offset_x, 0,
-                                    glyph_offset_x+my_glyph.width-1, 0+my_glyph.height-1)
+                    bitmap.insert(
+                        xposition + my_glyph.dx,
+                        yposition - my_glyph.height - my_glyph.dy,
+                        my_glyph.bitmap,
+                        glyph_offset_x,
+                        0,
+                        glyph_offset_x + my_glyph.width - 1,
+                        0 + my_glyph.height - 1,
+                    )
 
                     # print('finished inserting gc.mem_free(): {}'.format(gc.mem_free()))
-                    #time.sleep(0.1)
-                    #time.sleep(1.0)
+                    # time.sleep(0.1)
+                    # time.sleep(1.0)
 
                     xposition = xposition + my_glyph.shift_x
 
