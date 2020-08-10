@@ -412,7 +412,7 @@ class Label(displayio.Group):
                     #                     glyph_offset_x, 0,
                     #                     glyph_offset_x+my_glyph.width, 0+my_glyph.height))
 
-                    bitmap.insert(
+                    bitmap.blit(
                         xposition + my_glyph.dx,
                         yposition - my_glyph.height - my_glyph.dy,
                         my_glyph.bitmap,
