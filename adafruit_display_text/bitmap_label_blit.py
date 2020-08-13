@@ -54,6 +54,8 @@ on the library's use of either.
 
 import displayio
 
+import time
+
 __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_Display_Text.git"
 
@@ -412,14 +414,18 @@ class Label(displayio.Group):
                     #                     glyph_offset_x, 0,
                     #                     glyph_offset_x+my_glyph.width, 0+my_glyph.height))
 
+                    #print('about to blit')
+                    #time.sleep(5)
+                    #print('bitmap size: {},{} x,y: ({},{})'.format(bitmap.width, bitmap.height, xposition + my_glyph.dx, yposition - my_glyph.height - my_glyph.dy))
                     bitmap.blit(
                         xposition + my_glyph.dx,
                         yposition - my_glyph.height - my_glyph.dy,
                         my_glyph.bitmap,
-                        glyph_offset_x,
-                        0,
-                        glyph_offset_x + my_glyph.width - 1,
-                        0 + my_glyph.height - 1,
+                        x1=glyph_offset_x,
+                        y1=0,
+                        x2=glyph_offset_x + my_glyph.width - 1,
+                        y2=0 + my_glyph.height - 1,
+                        skip_index=0, # do not copy over any 0 background pixels
                     )
 
                     # print('finished inserting gc.mem_free(): {}'.format(gc.mem_free()))
